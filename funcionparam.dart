@@ -1,18 +1,23 @@
-// Función 1: Sumar dos números
-int sumar(int a, int b) {
-  return a + b;
+// Función para calcular el área de un rectángulo
+double calcularArea(double largo, double ancho) {
+  return largo * ancho;
 }
 
-// Función 2: Imprimir un mensaje de saludo
-void saludar(String nombre, String mensaje) {
-  print('$mensaje, $nombre!');
+// Función para calcular el perímetro de un rectángulo
+double calcularPerimetro(double largo, double ancho) {
+  return 2 * (largo + ancho);
 }
 
 void main() {
-  // Llamada a la función sumar con parámetros posicionales
-  int resultado = sumar(3, 5);
-  print('La suma es: $resultado');
-  
-  // Llamada a la función saludar con parámetros posicionales
-  saludar('edgar', 'Hola');
+  double largo = 5.0;
+  double ancho = 3.0;
+
+  // Llamada a la función para calcular el área
+  double area = calcularArea(largo, ancho);
+  print("El área del rectángulo es: $area");
+
+  // Llamada a la función para calcular el perímetro
+  double perimetro = calcularPerimetro(largo, ancho);
+  print("El perímetro del rectángulo es: $perimetro");
 }
+
