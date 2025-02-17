@@ -40,6 +40,7 @@ class Cliente {
   String apellido;
   String direccion;
   String telefono;
+  int edad;
 
   // Constructor
   Cliente({
@@ -48,6 +49,7 @@ class Cliente {
     required this.apellido,
     required this.direccion,
     required this.telefono,
+    required this.edad,
   });
 
   // Método para imprimir información del cliente
@@ -57,6 +59,7 @@ class Cliente {
     print('Apellido: $apellido');
     print('Dirección: $direccion');
     print('Teléfono: $telefono');
+    print('Edad: $edad');
   }
 }
 
@@ -64,7 +67,8 @@ class Cliente {
 class Orden {
   int idOrden;
   int idCliente;
-  DateTime fecha;
+  String fecha; // Cambiado de DateTime a String
+  String fechaEntrega; // Cambiado de DateTime a String
   double total;
   String metodoPago;
 
@@ -73,6 +77,7 @@ class Orden {
     required this.idOrden,
     required this.idCliente,
     required this.fecha,
+    required this.fechaEntrega,
     required this.total,
     required this.metodoPago,
   });
@@ -81,7 +86,8 @@ class Orden {
   void imprimirOrden() {
     print('ID Orden: $idOrden');
     print('ID Cliente: $idCliente');
-    print('Fecha: ${fecha.toString()}');
+    print('Fecha: $fecha');
+    print('Fecha de Entrega: $fechaEntrega');
     print('Total: \$${total.toStringAsFixed(2)}');
     print('Método de pago: $metodoPago');
   }
@@ -128,6 +134,8 @@ void main() {
   String direccion = stdin.readLineSync()!;
   print('Teléfono:');
   String telefono = stdin.readLineSync()!;
+  print('Edad:');
+  int edad = int.parse(stdin.readLineSync()!);
 
   // Crear un cliente con los datos ingresados
   Cliente cliente = Cliente(
@@ -136,6 +144,7 @@ void main() {
     apellido: apellido,
     direccion: direccion,
     telefono: telefono,
+    edad: edad,
   );
 
   // Ingresar información de la orden
@@ -146,12 +155,17 @@ void main() {
   String metodoPago = stdin.readLineSync()!;
   print('Total de la orden:');
   double total = double.parse(stdin.readLineSync()!);
+  print('Fecha (formato: yyyy-mm-dd):');
+  String fechaStr = stdin.readLineSync()!;
+  print('Fecha de Entrega (formato: yyyy-mm-dd):');
+  String fechaEntregaStr = stdin.readLineSync()!;
 
   // Crear una orden con los datos ingresados
   Orden orden = Orden(
     idOrden: idOrden,
     idCliente: cliente.idCliente,
-    fecha: DateTime.now(),
+    fecha: fechaStr,
+    fechaEntrega: fechaEntregaStr,
     total: total,
     metodoPago: metodoPago,
   );
